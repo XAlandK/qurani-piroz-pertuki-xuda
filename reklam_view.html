@@ -4,48 +4,59 @@
     <meta charset="UTF-8">
     <title>پیتاک (Donation)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            height: 100%;
+            -webkit-text-size-adjust: 100%;
         }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             direction: rtl;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
         body::before {
             content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
+            position: fixed;
+            width: 300px;
+            height: 300px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            top: -250px;
-            right: -250px;
+            top: -150px;
+            right: -150px;
             animation: float 20s infinite ease-in-out;
+            pointer-events: none;
         }
         
         body::after {
             content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
+            position: fixed;
+            width: 250px;
+            height: 250px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
-            bottom: -200px;
-            left: -200px;
+            bottom: -125px;
+            left: -125px;
             animation: float 15s infinite ease-in-out reverse;
+            pointer-events: none;
         }
         
         @keyframes float {
@@ -57,9 +68,10 @@
         .container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 48px 40px;
-            max-width: 520px;
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 32px 24px;
+            max-width: 480px;
             width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
@@ -79,11 +91,11 @@
         }
         
         .icon-wrapper {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -97,33 +109,33 @@
         }
         
         .icon-wrapper svg {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             fill: white;
         }
         
         h1 {
             text-align: center;
             color: #2d3748;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
         
         .subtitle {
             text-align: center;
             color: #718096;
-            font-size: 16px;
-            margin-bottom: 32px;
+            font-size: 15px;
+            margin-bottom: 24px;
             line-height: 1.6;
         }
         
         .message {
             background: linear-gradient(135deg, #f6f8fb 0%, #eef2f7 100%);
-            padding: 24px;
-            border-radius: 16px;
-            margin-bottom: 32px;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 24px;
             border-right: 4px solid #667eea;
             color: #4a5568;
             font-size: 15px;
@@ -132,26 +144,24 @@
         
         .payment-card {
             background: white;
-            border-radius: 20px;
-            padding: 32px;
+            border-radius: 18px;
+            padding: 28px 24px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
         }
         
-        .payment-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
+        .payment-card:active {
+            transform: scale(0.98);
         }
         
         .payment-header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         
         .payment-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 16px;
@@ -161,31 +171,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 16px;
         }
         
         .logo-container {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.1) rotate(5deg);
+            flex-shrink: 0;
         }
         
         .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
         
         .provider-names {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -196,25 +203,23 @@
         .phone-number {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            border-radius: 16px;
+            padding: 18px;
+            border-radius: 14px;
             text-align: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             letter-spacing: 1px;
             box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             user-select: all;
-        }
-        
-        .phone-number:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+            -webkit-user-select: all;
+            touch-action: manipulation;
         }
         
         .phone-number:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
         }
         
         .copy-hint {
@@ -222,11 +227,12 @@
             margin-top: 12px;
             font-size: 13px;
             color: #a0aec0;
+            transition: all 0.3s ease;
         }
         
         .footer {
             text-align: center;
-            margin-top: 32px;
+            margin-top: 28px;
             color: #718096;
             font-size: 14px;
         }
@@ -243,13 +249,35 @@
             20%, 40% { transform: scale(1); }
         }
         
-        @media (max-width: 480px) {
+        /* iPhone specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+            }
+            
             .container {
-                padding: 32px 24px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Smaller iPhones (SE, 12 mini, 13 mini) */
+        @media (max-width: 390px) {
+            .container {
+                padding: 28px 20px;
             }
             
             h1 {
-                font-size: 28px;
+                font-size: 26px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .message {
+                padding: 18px;
+                font-size: 14px;
             }
             
             .phone-number {
@@ -264,6 +292,39 @@
             .logo-container {
                 width: 48px;
                 height: 48px;
+            }
+            
+            .provider-names {
+                font-size: 16px;
+            }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 360px) {
+            body {
+                padding: 12px;
+            }
+            
+            .container {
+                padding: 24px 18px;
+            }
+            
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .icon-wrapper svg {
+                width: 30px;
+                height: 30px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .phone-number {
+                font-size: 18px;
             }
         }
     </style>
@@ -300,7 +361,7 @@
             <div class="phone-number" onclick="copyPhone()">
                 07725448781
             </div>
-            <p class="copy-hint">کرتەبکە بۆ کۆپیکردن</p>
+            <p class="copy-hint" id="copyHint">کرتەبکە بۆ کۆپیکردن</p>
         </div>
         
         <div class="footer">
@@ -309,37 +370,74 @@
     </div>
     
     <script>
+        // Fix for iOS viewport height
+        function setVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setVh();
+        window.addEventListener('resize', setVh);
+        window.addEventListener('orientationchange', setVh);
+        
         function copyPhone() {
             const phone = '07725448781';
+            const hint = document.getElementById('copyHint');
+            
+            // iOS-specific copy handling
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(phone).then(() => {
                     showCopyFeedback();
+                }).catch(() => {
+                    fallbackCopy(phone);
                 });
             } else {
-                const textArea = document.createElement('textarea');
-                textArea.value = phone;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-999999px';
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showCopyFeedback();
-                } catch (err) {
-                    console.error('Failed to copy');
-                }
-                document.body.removeChild(textArea);
+                fallbackCopy(phone);
             }
         }
         
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '0';
+            textArea.setAttribute('readonly', '');
+            document.body.appendChild(textArea);
+            
+            // iOS-specific selection
+            if (navigator.userAgent.match(/ipad|iphone/i)) {
+                const range = document.createRange();
+                range.selectNodeContents(textArea);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                textArea.setSelectionRange(0, 999999);
+            } else {
+                textArea.select();
+            }
+            
+            try {
+                document.execCommand('copy');
+                showCopyFeedback();
+            } catch (err) {
+                console.error('Failed to copy');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
         function showCopyFeedback() {
-            const hint = document.querySelector('.copy-hint');
+            const hint = document.getElementById('copyHint');
             const originalText = hint.textContent;
             hint.textContent = '✓ کۆپیکرا!';
             hint.style.color = '#48bb78';
+            hint.style.fontWeight = '600';
+            
             setTimeout(() => {
                 hint.textContent = originalText;
                 hint.style.color = '#a0aec0';
+                hint.style.fontWeight = 'normal';
             }, 2000);
         }
     </script>
