@@ -1,76 +1,347 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>پیتاک (Donation)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        body {
-            background-color: #fdfdfd;
-            color: #333;
+        * {
             margin: 0;
-            padding: 20px;
-            line-height: 1.5;
-            direction: rtl;
-            text-align: right;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        h1 {
-            text-align: center;
-            color: #007acc;
-        }
-
-        p {
-            font-size: 16px;
-            text-align: justify;
-        }
-
-        .ad-box {
-            border: 2px solid #007acc;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-            background-color: #e6f2ff;
-            text-align: center;
-        }
-
-        .fastpay {
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 18px;
+            padding: 20px;
+            direction: rtl;
+            position: relative;
+            overflow: hidden;
         }
-
-        .fastpay img {
+        
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 48px 40px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .icon-wrapper svg {
             width: 40px;
             height: 40px;
+            fill: white;
         }
-
-        a {
-            color: #007acc;
-            text-decoration: none;
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
-
-        a:hover {
-            text-decoration: underline;
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .message {
+            background: linear-gradient(135deg, #f6f8fb 0%, #eef2f7 100%);
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            border-right: 4px solid #667eea;
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .payment-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .payment-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 16px;
+        }
+        
+        .logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .provider-names {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .phone-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: all;
+        }
+        
+        .phone-number:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+        }
+        
+        .phone-number:active {
+            transform: scale(0.98);
+        }
+        
+        .copy-hint {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #a0aec0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .heart {
+            color: #e53e3e;
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(1); }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 24px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .phone-number {
+                font-size: 20px;
+                padding: 16px;
+            }
+            
+            .logos {
+                gap: 12px;
+            }
+            
+            .logo-container {
+                width: 48px;
+                height: 48px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>پیتاک</h1>
-    
-    <p>
-        ئەم بەرنامەیە بەبێبەرانبەر بەکار دەهێنیت، تاکو بەبێبەرانبەر بمێنێتەوە، هاریکارمان بە.
-    </p>
-
-    <div class="ad-box">
-        <div class="fastpay">
-            <img src="https://play-lh.googleusercontent.com/R3CWBUBTGRgnXAIZZYnNKfzeSHv0yK9vrSWtQ0rUm-sJw9OG3eH71OKTeSICGMWFFh4" alt="FastPay Logo">
-            <img src="https://play-lh.googleusercontent.com/NhDkDXdQINxO3esj1AWO8YKJU85uRuJ0CL_t0BCG-_tvFcxf-eyJkdaZQWqg5Ub1Qw=w240-h480-rw" alt="FIB Logo">
-            <span>FastPay & FIB<br>07725448781</span>
+    <div class="container">
+        <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+        </div>
+        
+        <h1>پیتاک</h1>
+        <p class="subtitle">پشتگیری لە پەرەپێدانی بەرنامەکە</p>
+        
+        <div class="message">
+            ئەم بەرنامەیە بەبێبەرانبەر بەکار دەهێنیت، تاکو بەبێبەرانبەر بمێنێتەوە، هاریکارمان بە.
+        </div>
+        
+        <div class="payment-card">
+            <div class="payment-header">
+                <div class="payment-title">شێوازی پارەدان</div>
+                <div class="logos">
+                    <div class="logo-container">
+                        <img src="https://play-lh.googleusercontent.com/R3CWBUBTGRgnXAIZZYnNKfzeSHv0yK9vrSWtQ0rUm-sJw9OG3eH71OKTeSICGMWFFh4" alt="FastPay">
+                    </div>
+                    <div class="logo-container">
+                        <img src="https://play-lh.googleusercontent.com/NhDkDXdQINxO3esj1AWO8YKJU85uRuJ0CL_t0BCG-_tvFcxf-eyJkdaZQWqg5Ub1Qw=w240-h480-rw" alt="FIB">
+                    </div>
+                </div>
+                <div class="provider-names">FastPay & FIB</div>
+            </div>
+            
+            <div class="phone-number" onclick="copyPhone()">
+                07725448781
+            </div>
+            <p class="copy-hint">کرتەبکە بۆ کۆپیکردن</p>
+        </div>
+        
+        <div class="footer">
+            دروستکراوە بە <span class="heart">♥</span> بۆ کۆمەڵگا
         </div>
     </div>
+    
+    <script>
+        function copyPhone() {
+            const phone = '07725448781';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(phone).then(() => {
+                    showCopyFeedback();
+                });
+            } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = phone;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyFeedback();
+                } catch (err) {
+                    console.error('Failed to copy');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+        
+        function showCopyFeedback() {
+            const hint = document.querySelector('.copy-hint');
+            const originalText = hint.textContent;
+            hint.textContent = '✓ کۆپیکرا!';
+            hint.style.color = '#48bb78';
+            setTimeout(() => {
+                hint.textContent = originalText;
+                hint.style.color = '#a0aec0';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
