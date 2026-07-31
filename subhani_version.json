@@ -2,7 +2,12 @@
   "latestVersion": "1.0.0",
   "minimumVersion": "1.0.0",
   "forceUpdate": false,
-  "androidUrl": "https://nasir-subhani.web.app",
-  "iosUrl": "https://nasir-subhani.web.app",
-  "releaseNotes": "Performance improvements and bug fixes."
+  "androidUrl": "https://…/jirok.apk",
+  "iosUrl": "https://apps.apple.com/…",
+  "releaseNotes": "…",
+
+  "iosLatestVersion": "1.0.0",
+  "iosMinimumVersion": "1.0.0",
+  "iosForceUpdate": false,
+  "iosReleaseNotes": "…"
 }
