@@ -6,8 +6,8 @@
   "iosUrl": "",
   "releaseNotes": "…",
 
-  "iosLatestVersion": "1.0.0",
-  "iosMinimumVersion": "1.0.0",
-  "iosForceUpdate": false,
+  "iosLatestVersion": "1.1.0",
+  "iosMinimumVersion": "1.1.0",
+  "iosForceUpdate": true,
   "iosReleaseNotes": "…"
 }
