@@ -1,8 +1,8 @@
 {
-  "latestVersion": "1.1.0",
-  "minimumVersion": "1.1.0",
-  "forceUpdate": false,
-  "androidUrl": "",
+  "latestVersion": "1.1.1",
+  "minimumVersion": "1.1.1",
+  "forceUpdate": true,
+  "androidUrl": "https://github.com/XAlandK/qurani-piroz-pertuki-xuda/releases/download/jirok-v1.1.1/jirok.apk",
   "iosUrl": "",
   "releaseNotes": "…",
 
