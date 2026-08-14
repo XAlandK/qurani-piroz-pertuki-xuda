@@ -8,6 +8,6 @@
 
   "iosLatestVersion": "1.1.1",
   "iosMinimumVersion": "1.0.0",
-  "iosForceUpdate": false,
+  "iosForceUpdate": true,
   "iosReleaseNotes": "…"
 }
