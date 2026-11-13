@@ -1,10 +1,10 @@
 {
-  "latestVersion": "1.1.2",
+  "latestVersion": "1.1.3",
   "minimumVersion": "1.0.0",
   "forceUpdate": true,
-  "androidUrl": "https://github.com/XAlandK/qurani-piroz-pertuki-xuda/releases/download/Subhani-v1.1.2/subhani112.apk",
+  "androidUrl": "https://github.com/XAlandK/qurani-piroz-pertuki-xuda/releases/download/Subhani-v1.1.3/subhani113.apk",
   "iosUrl": "https://apps.apple.com/us/app/nasir-subhani/id6795978341?itscg=30200&itsct=apps_box_link&mttnsubad=6795978341",
-  "releaseNotes": "…",
+  "releaseNotes": "• سڵایدەری نوێ بۆ بۆشایی دەوری دەق لە ڕێکخستنی دەق\n• پانووسەکان: دەقی هاوسەنگ، شیتێکی بەقەد پانووسەکە و دوگمەی داخستن لە سەرەوە\n• ١٢ ڕەنگی ڕووکار، بە چوار ڕەنگی نوێ و دوو ڕیزی پڕ\n• ڕێنماییەکەی خانەی گەڕان چیتر نابڕێت",
 
   "iosLatestVersion": "1.1.1",
   "iosMinimumVersion": "1.1.1",
