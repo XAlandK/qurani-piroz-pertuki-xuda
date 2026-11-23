@@ -1,10 +1,10 @@
 {
-  "latestVersion": "1.1.4",
+  "latestVersion": "1.1.5",
   "minimumVersion": "1.0.0",
   "forceUpdate": true,
-  "androidUrl": "https://github.com/XAlandK/qurani-piroz-pertuki-xuda/releases/download/Subhani-v1.1.4/subhani114.apk",
+  "androidUrl": "https://github.com/XAlandK/qurani-piroz-pertuki-xuda/releases/download/Subhani-v1.1.5/subhani115.apk",
   "iosUrl": "https://apps.apple.com/us/app/nasir-subhani/id6795978341?itscg=30200&itsct=apps_box_link&mttnsubad=6795978341",
-  "releaseNotes": "• ڕاڤەی ژیریی دەستکرد بۆ پەرەگرافەکانی کتێبە کوردییەکان، کە دەکرێنەوە و دادەخرێن\n• دوگمەیەکی نوێ لە سەرەوەی بابەت: هەموو ڕاڤەکان بکەرەوە، یان تەنیا ڕاڤەکان پیشان بدە\n• دەتوانیت لەنێو ڕاڤەکانیشدا بگەڕێیت",
+  "releaseNotes": "• ڕاڤەی ژیریی دەستکرد بۆ پەرەگرافەکانی کتێبە کوردییەکان، کە دەکرێنەوە و دادەخرێن\n• دوگمەیەکی نوێ لە سەرەوەی بابەت: هەموو ڕاڤەکان بکەرەوە، یان تەنیا ڕاڤەکان پیشان بدە\n• دەتوانیت لەنێو ڕاڤەکانیشدا بگەڕێیت\n• دەقی ڕاڤەکان هاوسەنگە، وەک دەقی کتێبەکە",
 
   "iosLatestVersion": "1.1.2",
   "iosMinimumVersion": "1.1.2",
